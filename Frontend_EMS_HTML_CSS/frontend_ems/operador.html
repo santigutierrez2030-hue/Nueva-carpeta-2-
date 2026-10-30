@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operador | eBike EMS</title>
+  <meta name="description" content="Vista del operador: flota, baterías, alertas y mantenimiento.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <div class="app">
+
+    <aside class="lateral">
+      <a class="marca" href="index.html"><img src="img/logo.svg" alt="" width="36" height="36">eBike <span>EMS</span></a>
+      <div class="lateral__perfil">
+        <strong>Carlos Ríos</strong>
+        <span>Operador</span>
+        <span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i></i><i></i></span>
+      </div>
+      <nav aria-label="Secciones de operador">
+        <a href="#flota" class="actual">Flota</a>
+        <a href="#baterias">Baterías y alertas</a>
+        <a href="#mantenimiento">Mantenimiento</a>
+        <a href="#registro">Registrar bicicleta</a>
+      </nav>
+      <div class="lateral__pie">
+        <a href="index.html">Vista principal</a>
+        <a href="login.html">Cerrar sesión</a>
+      </div>
+    </aside>
+
+    <main class="principal" id="contenido">
+      <header class="principal__cabecera">
+        <div>
+          <h1>Flota y baterías</h1>
+          <p>Estado de las bicicletas, las baterías y los mantenimientos.</p>
+        </div>
+        
+      </header>
+      <div class="bloques">
+      <div class="indicadores">
+        <div class="indicador"><span>Disponibles</span><strong>3</strong><small>bicicletas listas en estación</small></div>
+        <div class="indicador"><span>En uso</span><strong>1</strong><small>bicicleta en la calle</small></div>
+        <div class="indicador"><span>En mantenimiento</span><strong>1</strong><small>bicicleta en el taller</small></div>
+        <div class="indicador indicador--alerta"><span>Alertas abiertas</span><strong>1</strong><small>batería con carga crítica</small></div>
+      </div>
+
+      <!-- RF-029 y RF-030: consulta de características y actualización de estado -->
+        <section class="panel" id="flota" aria-labelledby="t-flota">
+        <header class="panel__cabecera">
+          <h2 id="t-flota">Flota</h2>
+          <p>Cinco bicicletas registradas.</p>
+        </header>
+        <div class="panel__cuerpo panel__cuerpo--tabla">
+          <div class="tabla-contenedor">
+            <table class="tabla tabla--nowrap">
+              <thead><tr><th>Bicicleta</th><th>Modelo</th><th>Estación</th><th>Estado</th><th>Batería</th><th class="derecha">Kilometraje</th><th class="ajustable">Próximo mantenimiento</th><th>Cambiar estado</th></tr></thead>
+              <tbody>
+                <tr><td><span class="codigo">001</span><span class="secundario">QR-EBK-001</span></td><td>Urban 500<span class="secundario">SN-2026-0001</span></td><td>Parque Central</td><td><span class="estado">Disponible</span></td><td><span class="bateria" style="--nivel: 95%" role="img" aria-label="Batería al 95 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>95 %</span></span></td><td class="numero">120,5 km</td><td class="numero">1 dic 2026</td><td><label class="solo-lectores" for="e-001">Estado de la bicicleta 001</label><select id="e-001" class="boton--s" style="min-height:2.1rem; border:1.5px solid var(--linea-fuerte); border-radius:4px; padding:0 .5rem; font:inherit; background:#fff;"><option selected>Disponible</option><option>En uso</option><option>Mantenimiento</option><option>Baja</option></select></td></tr>
+                <tr><td><span class="codigo">002</span><span class="secundario">QR-EBK-002</span></td><td>Urban 500<span class="secundario">SN-2026-0002</span></td><td>Parque Central</td><td><span class="estado">Disponible</span></td><td><span class="bateria" style="--nivel: 80%" role="img" aria-label="Batería al 80 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>80 %</span></span></td><td class="numero">85 km</td><td class="numero">1 dic 2026</td><td><label class="solo-lectores" for="e-002">Estado de la bicicleta 002</label><select id="e-002" class="boton--s" style="min-height:2.1rem; border:1.5px solid var(--linea-fuerte); border-radius:4px; padding:0 .5rem; font:inherit; background:#fff;"><option selected>Disponible</option><option>En uso</option><option>Mantenimiento</option><option>Baja</option></select></td></tr>
+                <tr><td><span class="codigo">003</span><span class="secundario">QR-EBK-003</span></td><td>Urban 500<span class="secundario">SN-2026-0003</span></td><td>Universidad</td><td><span class="estado">Disponible</span></td><td><span class="bateria bateria--critico" style="--nivel: 10%" role="img" aria-label="Batería al 10 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>10 %</span></span></td><td class="numero">310,2 km</td><td class="numero">15 nov 2026</td><td><label class="solo-lectores" for="e-003">Estado de la bicicleta 003</label><select id="e-003" class="boton--s" style="min-height:2.1rem; border:1.5px solid var(--linea-fuerte); border-radius:4px; padding:0 .5rem; font:inherit; background:#fff;"><option selected>Disponible</option><option>En uso</option><option>Mantenimiento</option><option>Baja</option></select></td></tr>
+                <tr><td><span class="codigo">004</span><span class="secundario">QR-EBK-004</span></td><td>City 750<span class="secundario">SN-2026-0004</span></td><td>En la calle</td><td><span class="estado estado--azul">En uso</span></td><td><span class="bateria" style="--nivel: 60%" role="img" aria-label="Batería al 60 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>60 %</span></span></td><td class="numero">45,75 km</td><td class="numero">10 ene 2027</td><td><label class="solo-lectores" for="e-004">Estado de la bicicleta 004</label><select id="e-004" class="boton--s" style="min-height:2.1rem; border:1.5px solid var(--linea-fuerte); border-radius:4px; padding:0 .5rem; font:inherit; background:#fff;"><option>Disponible</option><option selected>En uso</option><option>Mantenimiento</option><option>Baja</option></select></td></tr>
+                <tr><td><span class="codigo">005</span><span class="secundario">QR-EBK-005</span></td><td>City 750<span class="secundario">SN-2026-0005</span></td><td>Terminal Norte</td><td><span class="estado estado--ambar">Mantenimiento</span></td><td><span class="bateria bateria--medio" style="--nivel: 40%" role="img" aria-label="Batería al 40 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>40 %</span></span></td><td class="numero">505 km</td><td class="numero">1 nov 2026</td><td><label class="solo-lectores" for="e-005">Estado de la bicicleta 005</label><select id="e-005" class="boton--s" style="min-height:2.1rem; border:1.5px solid var(--linea-fuerte); border-radius:4px; padding:0 .5rem; font:inherit; background:#fff;"><option>Disponible</option><option>En uso</option><option selected>Mantenimiento</option><option>Baja</option></select></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- RF-031 a RF-035: baterías, tiempos de carga, consumo y alertas -->
+        <section class="panel" id="baterias" aria-labelledby="t-baterias">
+        <header class="panel__cabecera">
+          <h2 id="t-baterias">Baterías y alertas</h2>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="aviso aviso--rojo" role="alert">
+            <span class="aviso__icono" aria-hidden="true">!</span>
+            <p><strong>Carga crítica en la batería BAT-003</strong>Tiene 10 % de carga, está en la estación Universidad y no se ofrece en alquiler. Ponla a cargar.</p>
+          </div>
+          <div class="tabla-contenedor">
+            <table class="tabla tabla--nowrap">
+              <thead><tr><th>Batería</th><th>Bicicleta</th><th>Carga</th><th class="derecha">Capacidad</th><th class="derecha">Temperatura</th><th>Estado</th><th>Vida útil</th></tr></thead>
+              <tbody>
+                <tr><td><span class="codigo">BAT-001</span></td><td>001</td><td><span class="bateria" style="--nivel: 95%" role="img" aria-label="Batería al 95 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>95 %</span></span></td><td class="derecha numero">500 Wh</td><td class="derecha numero">24,5 °C</td><td><span class="estado">Cargada</span></td><td class="numero">36 meses</td></tr>
+                <tr><td><span class="codigo">BAT-002</span></td><td>002</td><td><span class="bateria" style="--nivel: 80%" role="img" aria-label="Batería al 80 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>80 %</span></span></td><td class="derecha numero">500 Wh</td><td class="derecha numero">25 °C</td><td><span class="estado">Disponible</span></td><td class="numero">36 meses</td></tr>
+                <tr><td><span class="codigo">BAT-003</span></td><td>003</td><td><span class="bateria bateria--critico" style="--nivel: 10%" role="img" aria-label="Batería al 10 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>10 %</span></span></td><td class="derecha numero">500 Wh</td><td class="derecha numero">27 °C</td><td><span class="estado">Disponible</span></td><td class="numero">36 meses</td></tr>
+                <tr><td><span class="codigo">BAT-004</span></td><td>004</td><td><span class="bateria" style="--nivel: 60%" role="img" aria-label="Batería al 60 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>60 %</span></span></td><td class="derecha numero">750 Wh</td><td class="derecha numero">26 °C</td><td><span class="estado">Disponible</span></td><td class="numero">36 meses</td></tr>
+                <tr><td><span class="codigo">BAT-005</span></td><td>005</td><td><span class="bateria bateria--medio" style="--nivel: 40%" role="img" aria-label="Batería al 40 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>40 %</span></span></td><td class="derecha numero">750 Wh</td><td class="derecha numero">29,5 °C</td><td><span class="estado">Disponible</span></td><td class="numero">36 meses</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="texto-suave"><strong>Última carga:</strong> BAT-005 en Terminal Norte, del 26 oct 10:00 p. m. al 27 oct 1:30 a. m. (3 h 30 min), de 15 % a 40 %.</p>
+        </div>
+      </section>
+
+      <!-- RF-037 a RF-040: novedades y mantenimiento -->
+        <section class="panel" id="mantenimiento" aria-labelledby="t-mantenimiento">
+        <header class="panel__cabecera">
+          <h2 id="t-mantenimiento">Mantenimiento</h2>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="tabla-contenedor">
+            <table class="tabla">
+              <thead><tr><th>Bicicleta</th><th>Tipo</th><th>Novedad</th><th>Ingreso</th><th>Responsable</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td><span class="codigo">005</span><span class="secundario">QR-EBK-005</span></td><td>Correctivo</td><td>Ruido extraño en la rueda trasera</td><td class="numero">26 oct 2026, 9:00 a. m.</td><td>Carlos Ríos</td><td><span class="estado estado--ambar">En mantenimiento</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="dos-columnas">
+            <details class="alta">
+              <summary>Registrar una novedad</summary>
+              <form class="formulario" action="#" method="post">
+                <div class="campo"><label for="n-bici">Bicicleta</label><select id="n-bici" required><option value="">Elige una bicicleta</option><option>001 Urban 500</option><option>002 Urban 500</option><option>003 Urban 500</option><option>004 City 750</option><option>005 City 750</option></select></div>
+                <div class="campo"><label for="n-tipo">Tipo</label><select id="n-tipo" required><option>Correctivo</option><option>Preventivo</option></select></div>
+                <div class="campo"><label for="n-desc">Qué pasó</label><textarea id="n-desc" required></textarea></div>
+                <div class="acciones"><button class="boton" type="submit">Registrar novedad</button></div>
+              </form>
+            </details>
+            <details class="alta" open>
+              <summary>Cerrar mantenimiento de la bicicleta 005</summary>
+              <form class="formulario" action="#" method="post">
+                <div class="campo"><label for="c-act">Actividad realizada</label><textarea id="c-act" required placeholder="Ejemplo: cambio de rodamiento de la rueda trasera"></textarea></div>
+                <div class="campo"><label for="c-fecha">Fecha de finalización</label><input id="c-fecha" type="date" required></div>
+                <div class="acciones"><button class="boton" type="submit">Cerrar mantenimiento</button></div>
+              </form>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- RF-027, RF-028 y RF-031: registro de bicicletas y baterías -->
+        <section class="panel" id="registro" aria-labelledby="t-registro">
+        <header class="panel__cabecera">
+          <h2 id="t-registro">Registrar una bicicleta</h2>
+          <p>Al registrarla también registras su batería.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <form class="formulario formulario--rejilla" action="#" method="post">
+            <div class="campo"><label for="r-qr">Código QR</label><input id="r-qr" type="text" required placeholder="QR-EBK-006"></div>
+            <div class="campo"><label for="r-serie">Número de serie</label><input id="r-serie" type="text" required placeholder="SN-2026-0006"></div>
+            <div class="campo"><label for="r-modelo">Modelo</label><input id="r-modelo" type="text" placeholder="Urban 500"></div>
+            <div class="campo"><label for="r-est">Estación</label><select id="r-est" required><option value="">Elige una estación</option><option>Parque Central (EST-001)</option><option>Universidad (EST-002)</option><option>Terminal Norte (EST-003)</option></select></div>
+            <div class="campo"><label for="r-bat">Código de la batería</label><input id="r-bat" type="text" required placeholder="BAT-006"></div>
+            <div class="campo"><label for="r-wh">Capacidad de la batería (Wh)</label><input id="r-wh" type="number" min="1" step="1" required placeholder="500"></div>
+            <div class="acciones"><button class="boton" type="submit">Registrar bicicleta</button></div>
+          </form>
+        </div>
+      </section>
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

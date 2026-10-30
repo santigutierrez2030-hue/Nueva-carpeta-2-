@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>eBike EMS | Alquila una bicicleta eléctrica en tu ciudad</title>
+  <meta name="description" content="Toma una bicicleta eléctrica en una estación, devuélvela en otra y paga solo por el tiempo que la usaste.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="marca" href="index.html"><img src="img/logo.svg" alt="" width="36" height="36">eBike <span>EMS</span></a>
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html#como-funciona">Cómo funciona</a>
+        <a href="index.html#estaciones">Estaciones</a>
+        <a href="index.html#tarifa">Tarifa</a>
+        <a href="index.html#perfiles">Perfiles</a>
+      </nav>
+      <div class="cabecera__acciones">
+        <a class="boton boton--secundario boton--s" href="login.html">Ingresar</a>
+        <a class="boton boton--s" href="registro.html">Crear cuenta</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- Vista principal: RF-007 consulta de disponibilidad, RF-008 inicio de alquiler -->
+    <section class="portada" aria-labelledby="titulo-portada">
+      <div class="contenedor portada__rejilla">
+        <div class="portada__texto">
+          <h1 id="titulo-portada">Toma una bicicleta eléctrica en una estación y devuélvela en otra.</h1>
+          <p>Escanea el código QR, pedalea con asistencia del motor y paga solo el tiempo que la usaste. Tú eliges dónde empezar y dónde terminar.</p>
+          <div class="acciones">
+            <a class="boton" href="registro.html">Crear cuenta</a>
+            <a class="boton boton--secundario" href="#disponibles">Ver bicicletas disponibles</a>
+          </div>
+          <p class="portada__tarifa texto-suave">Pagas <strong>$1.000</strong> al empezar y <strong>$250</strong> por cada minuto.</p>
+        </div>
+
+        <section class="tablero" id="disponibles" aria-labelledby="titulo-tablero">
+          <header class="tablero__cabecera">
+            <h2 id="titulo-tablero">Disponibles ahora</h2>
+            <span>Actualizado a las 6:42 p. m.</span>
+          </header>
+          <ul>
+            <li class="tablero__fila">
+              <span class="tablero__codigo">001</span>
+              <div><span class="tablero__modelo">Urban 500</span><span class="tablero__lugar">Parque Central</span></div>
+              <span class="bateria" style="--nivel: 95%" role="img" aria-label="Batería al 95 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>95 %</span></span>
+              <a class="boton boton--claro boton--s" href="login.html">Alquilar</a>
+            </li>
+            <li class="tablero__fila">
+              <span class="tablero__codigo">002</span>
+              <div><span class="tablero__modelo">Urban 500</span><span class="tablero__lugar">Parque Central</span></div>
+              <span class="bateria" style="--nivel: 80%" role="img" aria-label="Batería al 80 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>80 %</span></span>
+              <a class="boton boton--claro boton--s" href="login.html">Alquilar</a>
+            </li>
+            <li class="tablero__fila tablero__fila--apagada">
+              <span class="tablero__codigo">003</span>
+              <div><span class="tablero__modelo">Urban 500</span><span class="tablero__lugar">Universidad</span></div>
+              <span class="bateria bateria--critico" style="--nivel: 10%" role="img" aria-label="Batería al 10 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>10 %</span></span>
+              <span class="estado estado--ambar">En carga</span>
+            </li>
+          </ul>
+          <p class="tablero__nota">Una bicicleta se ofrece cuando su batería tiene al menos 20 %.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="seccion seccion--blanca" id="como-funciona" aria-labelledby="titulo-pasos">
+      <div class="contenedor">
+        <div class="seccion__intro">
+          <h2 id="titulo-pasos">Cómo funciona</h2>
+          <p>De la estación a tu destino en cuatro pasos.</p>
+        </div>
+        <ol class="pasos">
+          <li><h3>Elige una bicicleta</h3><p>Mira cuáles están libres en cada estación y cuánta batería tienen.</p></li>
+          <li><h3>Escanea el código QR</h3><p>Al escanearlo se registra tu salida y empieza a contar el tiempo.</p></li>
+          <li><h3>Devuélvela en otra estación</h3><p>Déjala en un espacio libre y finaliza el alquiler desde tu cuenta.</p></li>
+          <li><h3>Paga con tu medio registrado</h3><p>El cobro se genera al finalizar y queda en tu historial de pagos.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- RF-024 consulta de estaciones -->
+    <section class="seccion" id="estaciones" aria-labelledby="titulo-estaciones">
+      <div class="contenedor">
+        <div class="seccion__intro">
+          <h2 id="titulo-estaciones">Estaciones</h2>
+          <p>Cada barra es un espacio de la estación. Las verdes tienen una bicicleta lista para salir y las amarillas, una en mantenimiento.</p>
+        </div>
+        <div class="estaciones">
+          <article class="estacion">
+            <p class="estacion__codigo">EST-001</p>
+            <h3>Parque Central</h3>
+            <address>Carrera 50 # 51-20</address>
+            <div class="muelle" role="img" aria-label="2 bicicletas disponibles de 10 espacios"><span class="ranura ranura--ocupada"></span><span class="ranura ranura--ocupada"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span></div>
+            <p class="estacion__cifra"><span>Disponibles</span><strong>2 de 10</strong></p>
+          </article>
+          <article class="estacion">
+            <p class="estacion__codigo">EST-002</p>
+            <h3>Universidad</h3>
+            <address>Calle 67 # 53-108</address>
+            <div class="muelle" role="img" aria-label="1 bicicletas disponibles de 8 espacios"><span class="ranura ranura--ocupada"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span></div>
+            <p class="estacion__cifra"><span>Disponibles</span><strong>1 de 8</strong></p>
+          </article>
+          <article class="estacion">
+            <p class="estacion__codigo">EST-003</p>
+            <h3>Terminal Norte</h3>
+            <address>Carrera 64C # 78-580</address>
+            <div class="muelle" role="img" aria-label="0 bicicletas disponibles de 12 espacios"><span class="ranura ranura--mant"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span></div>
+            <p class="estacion__cifra"><span>Disponibles</span><strong>0 de 12</strong></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RF-012 cálculo de tarifa -->
+    <section class="seccion seccion--blanca" id="tarifa" aria-labelledby="titulo-tarifa">
+      <div class="contenedor tarifa">
+        <div>
+          <h2 id="titulo-tarifa">Una sola tarifa, fácil de calcular</h2>
+          <p class="texto-suave" style="margin: 0.75rem 0 1.25rem; max-width: 30rem;">El valor se calcula al finalizar el alquiler, con los minutos exactos que usaste la bicicleta.</p>
+          <p class="tarifa__precio"><strong>$1.000</strong><span>al empezar</span><strong>$250</strong><span>por minuto</span></p>
+        </div>
+        <div class="cuenta">
+          <h3>Ejemplo: un recorrido de 30 minutos</h3>
+          <dl>
+            <div><dt>Tarifa base</dt><dd>$1.000</dd></div>
+            <div><dt>30 minutos × $250</dt><dd>$7.500</dd></div>
+            <div class="total"><dt>Total a pagar</dt><dd>$8.500</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- RF-041 a RF-044: cada actor tiene su propia vista -->
+    <section class="seccion" id="perfiles" aria-labelledby="titulo-perfiles">
+      <div class="contenedor">
+        <div class="seccion__intro">
+          <h2 id="titulo-perfiles">Cada perfil ve lo que necesita</h2>
+          <p>El sistema tiene cuatro perfiles. Cuanto más alto el nivel de acceso, más funciones tiene.</p>
+        </div>
+        <div class="perfiles">
+          <article class="perfil">
+            <span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i></i><i></i><i></i></span>
+            <h3>Cliente</h3>
+            <p>Alquila bicicletas y revisa lo que ha usado y pagado.</p>
+            <ul><li>Alquilar y finalizar</li><li>Historial de alquileres</li><li>Medios de pago</li></ul>
+            <a class="boton boton--secundario boton--s" href="cliente.html">Ver vista del cliente</a>
+          </article>
+          <article class="perfil">
+            <span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i></i><i></i></span>
+            <h3>Operador</h3>
+            <p>Cuida la flota: bicicletas, baterías y mantenimiento.</p>
+            <ul><li>Registrar bicicletas</li><li>Estado de baterías</li><li>Mantenimiento</li></ul>
+            <a class="boton boton--secundario boton--s" href="operador.html">Ver vista del operador</a>
+          </article>
+          <article class="perfil">
+            <span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i class="activo"></i><i></i></span>
+            <h3>Administrador</h3>
+            <p>Gestiona usuarios, estaciones y mira cómo va la operación.</p>
+            <ul><li>Usuarios y estaciones</li><li>Consumo de energía</li><li>Reportes</li></ul>
+            <a class="boton boton--secundario boton--s" href="administrador.html">Ver vista del administrador</a>
+          </article>
+          <article class="perfil">
+            <span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i class="activo"></i><i class="activo"></i></span>
+            <h3>Superadministrador</h3>
+            <p>Define quién puede hacer qué y ajusta la plataforma.</p>
+            <ul><li>Perfiles y permisos</li><li>Niveles de acceso</li><li>Configuración general</li></ul>
+            <a class="boton boton--secundario boton--s" href="superadministrador.html">Ver vista del superadministrador</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__fila">
+      <div>
+        <strong>eBike Management System</strong>
+        <p>Sistema de alquiler de bicicletas eléctricas compartidas.</p>
+        <p>Proyecto formativo SENA, Técnico en Desarrollo de Software.</p>
+      </div>
+      <nav aria-label="Vistas del sistema">
+        <strong>Vistas por perfil</strong>
+        <ul>
+          <li><a href="cliente.html">Cliente</a></li>
+          <li><a href="operador.html">Operador</a></li>
+          <li><a href="administrador.html">Administrador</a></li>
+          <li><a href="superadministrador.html">Superadministrador</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

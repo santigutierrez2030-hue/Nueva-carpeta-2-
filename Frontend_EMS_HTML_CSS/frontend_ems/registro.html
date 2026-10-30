@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crear cuenta | eBike EMS</title>
+  <meta name="description" content="Crea tu cuenta de eBike EMS para alquilar bicicletas eléctricas.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="marca" href="index.html"><img src="img/logo.svg" alt="" width="36" height="36">eBike <span>EMS</span></a>
+      <nav class="menu" aria-label="Principal">
+        <a href="index.html#como-funciona">Cómo funciona</a>
+        <a href="index.html#estaciones">Estaciones</a>
+        <a href="index.html#tarifa">Tarifa</a>
+        <a href="index.html#perfiles">Perfiles</a>
+      </nav>
+      <div class="cabecera__acciones">
+        <a class="boton boton--secundario boton--s" href="login.html">Ingresar</a>
+        <a class="boton boton--s" href="registro.html">Crear cuenta</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="acceso acceso--centrado">
+    <div class="contenedor acceso__rejilla">
+
+      <!-- RF-001 registro de usuarios, RF-003 validación de datos -->
+      <section class="formulario-caja" aria-labelledby="titulo-registro">
+        <h1 id="titulo-registro">Crear cuenta</h1>
+        <p>Con tu cuenta puedes alquilar bicicletas y ver tu historial.</p>
+        <form class="formulario formulario--rejilla" action="#" method="post">
+          <div class="campo campo--completo">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required minlength="3" maxlength="150" placeholder="Laura Gómez">
+          </div>
+          <div class="campo campo--completo">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" required maxlength="150" placeholder="nombre@correo.com">
+          </div>
+          <div class="campo campo--completo">
+            <label for="telefono">Teléfono celular</label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel" required inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" placeholder="3001112233" aria-describedby="ayuda-telefono">
+            <span class="ayuda" id="ayuda-telefono">10 dígitos, empieza por 3.</span>
+          </div>
+          <div class="campo">
+            <label for="clave">Contraseña</label>
+            <input id="clave" name="clave" type="password" autocomplete="new-password" required minlength="8" aria-describedby="ayuda-clave">
+          </div>
+          <div class="campo">
+            <label for="clave2">Repite la contraseña</label>
+            <input id="clave2" name="clave2" type="password" autocomplete="new-password" required minlength="8">
+          </div>
+          <span class="ayuda campo--completo" id="ayuda-clave" style="color: var(--tinta-suave); font-size: 0.875rem;">Mínimo 8 caracteres. Tu contraseña se guarda cifrada.</span>
+          <div class="campo campo--check campo--completo">
+            <input id="acepto" name="acepto" type="checkbox" required>
+            <label for="acepto">Acepto los términos de uso y el tratamiento de mis datos personales.</label>
+          </div>
+          <div class="acciones">
+            <button class="boton" type="submit">Crear cuenta</button>
+            <a href="login.html">Ya tengo cuenta</a>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__fila">
+      <div>
+        <strong>eBike Management System</strong>
+        <p>Sistema de alquiler de bicicletas eléctricas compartidas.</p>
+        <p>Proyecto formativo SENA, Técnico en Desarrollo de Software.</p>
+      </div>
+      <nav aria-label="Vistas del sistema">
+        <strong>Vistas por perfil</strong>
+        <ul>
+          <li><a href="cliente.html">Cliente</a></li>
+          <li><a href="operador.html">Operador</a></li>
+          <li><a href="administrador.html">Administrador</a></li>
+          <li><a href="superadministrador.html">Superadministrador</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

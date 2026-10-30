@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="eBike EMS">
+  <rect x="2" y="2" width="44" height="44" rx="10" fill="#17261E"/>
+  <rect x="9" y="17" width="26" height="14" rx="3" fill="none" stroke="#F1F4EC" stroke-width="2.4"/>
+  <rect x="36.5" y="21" width="3.5" height="6" rx="1.2" fill="#F1F4EC"/>
+  <rect x="12" y="20" width="5" height="8" rx="1" fill="#39A900"/>
+  <rect x="19" y="20" width="5" height="8" rx="1" fill="#39A900"/>
+  <rect x="26" y="20" width="5" height="8" rx="1" fill="#39A900" fill-opacity=".35"/>
+</svg>

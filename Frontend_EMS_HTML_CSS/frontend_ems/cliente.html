@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cliente | eBike EMS</title>
+  <meta name="description" content="Vista del cliente: alquiler en curso, bicicletas disponibles, historial y pagos.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <div class="app">
+
+    <aside class="lateral">
+      <a class="marca" href="index.html"><img src="img/logo.svg" alt="" width="36" height="36">eBike <span>EMS</span></a>
+      <div class="lateral__perfil">
+        <strong>Laura Gómez</strong>
+        <span>Cliente</span>
+        <span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i></i><i></i><i></i></span>
+      </div>
+      <nav aria-label="Secciones de cliente">
+        <a href="#alquiler" class="actual">Mi alquiler</a>
+        <a href="#bicicletas">Bicicletas disponibles</a>
+        <a href="#historial">Historial</a>
+        <a href="#pagos">Pagos</a>
+        <a href="#perfil">Mi perfil</a>
+      </nav>
+      <div class="lateral__pie">
+        <a href="index.html">Vista principal</a>
+        <a href="login.html">Cerrar sesión</a>
+      </div>
+    </aside>
+
+    <main class="principal" id="contenido">
+      <header class="principal__cabecera">
+        <div>
+          <h1>Hola, Laura</h1>
+          <p>Tienes un alquiler en curso desde las 6:00 p. m.</p>
+        </div>
+        
+      </header>
+      <div class="bloques">
+      <!-- RF-008 a RF-012: inicio, finalización, cierre y cálculo del alquiler -->
+        <section class="panel" id="alquiler" aria-labelledby="t-alquiler">
+        <header class="panel__cabecera">
+          <h2 id="t-alquiler">Mi alquiler en curso</h2>
+          <p>Se calcula con $1.000 de base más $250 por minuto.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="curso">
+            <div class="curso__datos">
+              <div class="curso__bici"><span class="codigo">004</span><div><strong>City 750</strong><br><span class="texto-suave">QR-EBK-004</span></div></div>
+              <dl class="curso__lista">
+                <dt>Salida</dt><dd>Universidad (EST-002)</dd>
+                <dt>Inicio</dt><dd>27 oct 2026, 6:00 p. m.</dd>
+                <dt>Tiempo</dt><dd>42 minutos</dd>
+                <dt>Batería</dt><dd><span class="bateria" style="--nivel: 60%" role="img" aria-label="Batería al 60 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>60 %</span></span></dd>
+              </dl>
+            </div>
+            <form class="curso__cobro" action="#" method="post">
+              <div><span class="cifra">$11.500</span><br><span class="cifra-etiqueta">Costo estimado hasta ahora</span></div>
+              <div class="campo" style="gap: 0.3rem;">
+                <label for="destino">Estación donde la devuelves</label>
+                <select id="destino" name="destino" required>
+                  <option value="">Elige una estación</option>
+                  <option>Parque Central (EST-001)</option>
+                  <option>Universidad (EST-002)</option>
+                  <option>Terminal Norte (EST-003)</option>
+                </select>
+              </div>
+              <button class="boton boton--claro" type="submit">Finalizar alquiler</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- RF-007: consulta de disponibilidad -->
+        <section class="panel" id="bicicletas" aria-labelledby="t-bicicletas">
+        <header class="panel__cabecera">
+          <h2 id="t-bicicletas">Bicicletas disponibles</h2>
+          <p>Con al menos 20 % de batería.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <form class="formulario" action="#" method="get" style="max-width: 20rem;">
+            <div class="campo">
+              <label for="filtro-estacion">Estación</label>
+              <select id="filtro-estacion" name="estacion">
+                <option>Todas las estaciones</option>
+                <option>Parque Central</option>
+                <option>Universidad</option>
+                <option>Terminal Norte</option>
+              </select>
+            </div>
+          </form>
+          <div class="bicis">
+            <article class="bici"><span class="bici__codigo">001</span><div><strong>Urban 500</strong><p class="bici__lugar"><strong>Parque Central</strong>, EST-001</p></div><span class="bateria" style="--nivel: 95%" role="img" aria-label="Batería al 95 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>95 %</span></span><a class="boton boton--s" href="#alquiler">Alquilar</a></article>
+            <article class="bici"><span class="bici__codigo">002</span><div><strong>Urban 500</strong><p class="bici__lugar"><strong>Parque Central</strong>, EST-001</p></div><span class="bateria" style="--nivel: 80%" role="img" aria-label="Batería al 80 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>80 %</span></span><a class="boton boton--s" href="#alquiler">Alquilar</a></article>
+            <article class="bici bici--apagada"><span class="bici__codigo">003</span><div><strong>Urban 500</strong><p class="bici__lugar"><strong>Universidad</strong>, EST-002</p></div><span class="bateria bateria--critico" style="--nivel: 10%" role="img" aria-label="Batería al 10 %"><span class="bateria__celda"><span class="bateria__nivel"></span></span><span>10 %</span></span><span class="boton boton--s" aria-disabled="true">Batería baja</span></article>
+          </div>
+          <p class="texto-suave">Solo puedes alquilar una bicicleta a la vez. Termina tu alquiler en curso para alquilar otra.</p>
+        </div>
+      </section>
+
+      <!-- RF-016: consulta de historial -->
+        <section class="panel" id="historial" aria-labelledby="t-historial">
+        <header class="panel__cabecera">
+          <h2 id="t-historial">Mi historial de alquileres</h2>
+        </header>
+        <div class="panel__cuerpo panel__cuerpo--tabla">
+          <div class="tabla-contenedor">
+            <table class="tabla">
+              <thead><tr><th>Fecha</th><th>Bicicleta</th><th>Recorrido</th><th>Duración</th><th class="derecha">Costo</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td>27 oct 2026<span class="secundario">6:00 p. m.</span></td><td><span class="codigo">004</span><span class="secundario">City 750</span></td><td>Universidad a destino sin definir</td><td class="numero">En curso</td><td class="derecha numero">Sin calcular</td><td><span class="estado estado--azul">En curso</span></td></tr>
+                <tr><td>20 oct 2026<span class="secundario">8:00 a. m.</span></td><td><span class="codigo">004</span><span class="secundario">City 750</span></td><td>Parque Central a Universidad</td><td class="numero">30 min</td><td class="derecha numero">$8.500</td><td><span class="estado">Completado</span></td></tr>
+                <tr><td>14 oct 2026<span class="secundario">7:15 a. m.</span></td><td><span class="codigo">001</span><span class="secundario">Urban 500</span></td><td>Universidad a Terminal Norte</td><td class="numero">18 min</td><td class="derecha numero">$5.500</td><td><span class="estado">Completado</span></td></tr>
+                <tr><td>9 oct 2026<span class="secundario">5:40 p. m.</span></td><td><span class="codigo">002</span><span class="secundario">Urban 500</span></td><td>Terminal Norte a Parque Central</td><td class="numero">25 min</td><td class="derecha numero">$7.250</td><td><span class="estado">Completado</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- RF-013 a RF-015: medios de pago y consulta de pagos -->
+        <section class="panel" id="pagos" aria-labelledby="t-pagos">
+        <header class="panel__cabecera">
+          <h2 id="t-pagos">Pagos</h2>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="dos-columnas">
+            <div>
+              <h3>Mis medios de pago</h3>
+              <ul style="margin-top: 0.75rem; display: grid; gap: 0.6rem;">
+                <li style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.8rem 1rem; border: 1px solid var(--linea); border-radius: var(--radio-s);">
+                  <span><strong>Tarjeta de crédito</strong><br><span class="texto-suave">Termina en 4242</span></span>
+                  <button class="boton boton--peligro boton--s" type="button">Quitar</button>
+                </li>
+              </ul>
+              <details class="alta" style="margin-top: 1rem;">
+                <summary>Agregar medio de pago</summary>
+                <form class="formulario" action="#" method="post">
+                  <div class="campo">
+                    <label for="tipo-pago">Tipo</label>
+                    <select id="tipo-pago" name="tipo" required>
+                      <option value="">Elige un tipo</option>
+                      <option>Tarjeta de crédito</option>
+                      <option>Tarjeta de débito</option>
+                      <option>Transferencia</option>
+                      <option>Billetera digital</option>
+                    </select>
+                  </div>
+                  <div class="campo">
+                    <label for="numero-pago">Número de tarjeta o cuenta</label>
+                    <input id="numero-pago" name="numero" type="text" inputmode="numeric" autocomplete="cc-number" required>
+                    <span class="ayuda">Solo guardamos los últimos 4 dígitos.</span>
+                  </div>
+                  <div class="acciones"><button class="boton" type="submit">Guardar medio de pago</button></div>
+                </form>
+              </details>
+            </div>
+            <div>
+              <h3>Pagos realizados</h3>
+              <div class="tabla-contenedor" style="margin-top: 0.5rem;">
+                <table class="tabla">
+                  <thead><tr><th>Referencia</th><th>Fecha</th><th class="derecha">Monto</th><th>Estado</th></tr></thead>
+                  <tbody>
+                    <tr><td>REF-0001</td><td>20 oct 2026</td><td class="derecha numero">$8.500</td><td><span class="estado">Aprobado</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RF-005 y RF-006: consulta y actualización de datos personales -->
+        <section class="panel" id="perfil" aria-labelledby="t-perfil">
+        <header class="panel__cabecera">
+          <h2 id="t-perfil">Mi perfil</h2>
+        </header>
+        <div class="panel__cuerpo">
+          <form class="formulario formulario--rejilla" action="#" method="post" style="max-width: 44rem;">
+            <div class="campo"><label for="p-nombre">Nombre completo</label><input id="p-nombre" name="nombre" type="text" value="Laura Gómez" required></div>
+            <div class="campo"><label for="p-telefono">Teléfono celular</label><input id="p-telefono" name="telefono" type="tel" value="3001112233" pattern="3[0-9]{9}" required></div>
+            <div class="campo campo--completo"><label for="p-email">Correo electrónico</label><input id="p-email" name="email" type="email" value="laura.gomez@ejemplo.com" required></div>
+            <div class="acciones"><button class="boton" type="submit">Guardar cambios</button></div>
+          </form>
+        </div>
+      </section>
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

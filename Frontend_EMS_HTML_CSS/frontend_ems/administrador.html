@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrador | eBike EMS</title>
+  <meta name="description" content="Vista del administrador: usuarios, estaciones, energía y reportes.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <div class="app">
+
+    <aside class="lateral">
+      <a class="marca" href="index.html"><img src="img/logo.svg" alt="" width="36" height="36">eBike <span>EMS</span></a>
+      <div class="lateral__perfil">
+        <strong>Marta Pérez</strong>
+        <span>Administrador</span>
+        <span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i class="activo"></i><i></i></span>
+      </div>
+      <nav aria-label="Secciones de administrador">
+        <a href="#usuarios" class="actual">Usuarios</a>
+        <a href="#estaciones">Estaciones</a>
+        <a href="#energia">Energía</a>
+        <a href="#reportes">Reportes</a>
+      </nav>
+      <div class="lateral__pie">
+        <a href="index.html">Vista principal</a>
+        <a href="login.html">Cerrar sesión</a>
+      </div>
+    </aside>
+
+    <main class="principal" id="contenido">
+      <header class="principal__cabecera">
+        <div>
+          <h1>Resumen de la operación</h1>
+          <p>Usuarios, estaciones, energía y reportes en un solo lugar.</p>
+        </div>
+        
+      </header>
+      <div class="bloques">
+      <div class="indicadores">
+        <div class="indicador"><span>Alquileres en curso</span><strong>1</strong><small>de 5 bicicletas</small></div>
+        <div class="indicador"><span>Disponibles</span><strong>2</strong><small>bicicletas con batería suficiente</small></div>
+        <div class="indicador"><span>Ingresos aprobados</span><strong>$8.500</strong><small>pagos de octubre</small></div>
+        <div class="indicador indicador--alerta"><span>Alertas abiertas</span><strong>1</strong><small>carga crítica en BAT-003</small></div>
+      </div>
+
+      <!-- RF-017 a RF-020: gestión de usuarios -->
+        <section class="panel" id="usuarios" aria-labelledby="t-usuarios">
+        <header class="panel__cabecera">
+          <h2 id="t-usuarios">Usuarios</h2>
+          <p>Cuatro usuarios activos.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="tabla-contenedor">
+            <table class="tabla">
+              <thead><tr><th>Nombre</th><th>Perfil</th><th>Teléfono</th><th>Estado</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><strong>Laura Gómez</strong><span class="secundario">laura.gomez@ejemplo.com</span></td><td>Cliente</td><td class="numero">300 111 2233</td><td><span class="estado">Activo</span></td><td class="acciones-celda"><button class="boton boton--secundario boton--s" type="button">Editar</button><button class="boton boton--peligro boton--s" type="button">Desactivar</button></td></tr>
+                <tr><td><strong>Carlos Ríos</strong><span class="secundario">carlos.rios@ejemplo.com</span></td><td>Operador</td><td class="numero">300 222 3344</td><td><span class="estado">Activo</span></td><td class="acciones-celda"><button class="boton boton--secundario boton--s" type="button">Editar</button><button class="boton boton--peligro boton--s" type="button">Desactivar</button></td></tr>
+                <tr><td><strong>Marta Pérez</strong><span class="secundario">marta.perez@ejemplo.com</span></td><td>Administrador</td><td class="numero">300 333 4455</td><td><span class="estado">Activo</span></td><td class="acciones-celda"><button class="boton boton--secundario boton--s" type="button">Editar</button><button class="boton boton--peligro boton--s" type="button">Desactivar</button></td></tr>
+                <tr><td><strong>Admin General</strong><span class="secundario">admin.general@ejemplo.com</span></td><td>Superadministrador</td><td class="numero">300 444 5566</td><td><span class="estado">Activo</span></td><td class="acciones-celda"><button class="boton boton--secundario boton--s" type="button">Editar</button><button class="boton boton--peligro boton--s" type="button" disabled>Desactivar</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="alta">
+            <summary>Registrar un usuario</summary>
+            <form class="formulario formulario--rejilla" action="#" method="post">
+              <div class="campo"><label for="u-nombre">Nombre completo</label><input id="u-nombre" type="text" required></div>
+              <div class="campo"><label for="u-perfil">Perfil</label><select id="u-perfil" required><option value="">Elige un perfil</option><option>Cliente</option><option>Operador</option><option>Administrador</option></select></div>
+              <div class="campo"><label for="u-email">Correo electrónico</label><input id="u-email" type="email" required></div>
+              <div class="campo"><label for="u-tel">Teléfono celular</label><input id="u-tel" type="tel" pattern="3[0-9]{9}" required></div>
+              <div class="acciones"><button class="boton" type="submit">Registrar usuario</button></div>
+            </form>
+          </details>
+        </div>
+      </section>
+
+      <!-- RF-023 y RF-024: registro y consulta de estaciones -->
+        <section class="panel" id="estaciones" aria-labelledby="t-estaciones">
+        <header class="panel__cabecera">
+          <h2 id="t-estaciones">Estaciones</h2>
+          <p>Espacios ocupados con bicicletas disponibles.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="estaciones">
+            <article class="estacion"><p class="estacion__codigo">EST-001</p><h3>Parque Central</h3><address>Carrera 50 # 51-20</address><div class="muelle" role="img" aria-label="2 bicicletas disponibles de 10 espacios"><span class="ranura ranura--ocupada"></span><span class="ranura ranura--ocupada"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span></div><p class="estacion__cifra"><span>Disponibles</span><strong>2 de 10</strong></p><p style="margin-top:.6rem"><span class="estado">Operativa</span></p></article>
+            <article class="estacion"><p class="estacion__codigo">EST-002</p><h3>Universidad</h3><address>Calle 67 # 53-108</address><div class="muelle" role="img" aria-label="1 bicicletas disponibles de 8 espacios"><span class="ranura ranura--ocupada"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span></div><p class="estacion__cifra"><span>Disponibles</span><strong>1 de 8</strong></p><p style="margin-top:.6rem"><span class="estado">Operativa</span></p></article>
+            <article class="estacion"><p class="estacion__codigo">EST-003</p><h3>Terminal Norte</h3><address>Carrera 64C # 78-580</address><div class="muelle" role="img" aria-label="0 bicicletas disponibles de 12 espacios"><span class="ranura ranura--mant"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span><span class="ranura"></span></div><p class="estacion__cifra"><span>Disponibles</span><strong>0 de 12</strong></p><p style="margin-top:.6rem"><span class="estado">Operativa</span></p></article>
+          </div>
+          <details class="alta">
+            <summary>Registrar una estación</summary>
+            <form class="formulario formulario--rejilla" action="#" method="post">
+              <div class="campo"><label for="s-cod">Código</label><input id="s-cod" type="text" required placeholder="EST-004"></div>
+              <div class="campo"><label for="s-nom">Nombre</label><input id="s-nom" type="text" required></div>
+              <div class="campo campo--completo"><label for="s-dir">Dirección</label><input id="s-dir" type="text"></div>
+              <div class="campo"><label for="s-lat">Latitud</label><input id="s-lat" type="number" step="0.000001" min="-90" max="90" required placeholder="6.251800"></div>
+              <div class="campo"><label for="s-lon">Longitud</label><input id="s-lon" type="number" step="0.000001" min="-180" max="180" required placeholder="-75.563600"></div>
+              <div class="campo"><label for="s-cap">Capacidad (bicicletas)</label><input id="s-cap" type="number" min="1" required></div>
+              <div class="acciones"><button class="boton" type="submit">Registrar estación</button></div>
+            </form>
+          </details>
+        </div>
+      </section>
+
+      <!-- RF-034 y RF-036: consumo energético e indicadores de eficiencia -->
+        <section class="panel" id="energia" aria-labelledby="t-energia">
+        <header class="panel__cabecera">
+          <h2 id="t-energia">Energía</h2>
+          <p>Consumo registrado por estación.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="barras" role="list" aria-label="Energía registrada por estación el 27 de octubre">
+            <div class="barra" role="listitem"><span>Parque Central</span><span class="barra__pista"><span class="barra__relleno" style="--valor: 100%"></span></span><span class="numero">12,5 kWh</span></div>
+            <div class="barra" role="listitem"><span>Terminal Norte</span><span class="barra__pista"><span class="barra__relleno barra__relleno--ambar" style="--valor: 3.6%"></span></span><span class="numero">0,45 kWh</span></div>
+            <div class="barra" role="listitem"><span>Universidad</span><span class="barra__pista"><span class="barra__relleno" style="--valor: 0%"></span></span><span class="numero">0 kWh</span></div>
+          </div>
+          <p class="texto-suave">Registros del 27 oct 2026. El kWh cuesta $700: el consumo de Parque Central fue de $8.750 y la carga de la batería BAT-005 costó $315.</p>
+        </div>
+      </section>
+
+      <!-- RF-025 y RF-026: información histórica y generación de reportes -->
+        <section class="panel" id="reportes" aria-labelledby="t-reportes">
+        <header class="panel__cabecera">
+          <h2 id="t-reportes">Reportes</h2>
+          <p>Elige el periodo y genera el reporte que necesites.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <form class="formulario formulario--rejilla" action="#" method="post" style="margin-bottom: 1.25rem; max-width: 34rem;">
+            <div class="campo"><label for="rp-desde">Desde</label><input id="rp-desde" type="date" required></div>
+            <div class="campo"><label for="rp-hasta">Hasta</label><input id="rp-hasta" type="date" required></div>
+          </form>
+          <div class="reportes">
+            <div class="reporte"><strong>Alquileres</strong><span>Alquileres completados, cancelados y con incidencia.</span><button class="boton boton--secundario boton--s" type="button">Generar</button></div>
+            <div class="reporte"><strong>Ingresos</strong><span>Pagos aprobados por día y por método de pago.</span><button class="boton boton--secundario boton--s" type="button">Generar</button></div>
+            <div class="reporte"><strong>Uso de bicicletas</strong><span>Kilometraje y número de alquileres por bicicleta.</span><button class="boton boton--secundario boton--s" type="button">Generar</button></div>
+            <div class="reporte"><strong>Consumo de energía</strong><span>Consumo por estación y costo de las cargas.</span><button class="boton boton--secundario boton--s" type="button">Generar</button></div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

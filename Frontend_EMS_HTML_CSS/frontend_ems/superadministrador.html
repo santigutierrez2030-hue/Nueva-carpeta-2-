@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Superadministrador | eBike EMS</title>
+  <meta name="description" content="Vista del superadministrador: perfiles, permisos, niveles de acceso y configuración.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <div class="app">
+
+    <aside class="lateral">
+      <a class="marca" href="index.html"><img src="img/logo.svg" alt="" width="36" height="36">eBike <span>EMS</span></a>
+      <div class="lateral__perfil">
+        <strong>Admin General</strong>
+        <span>Superadministrador</span>
+        <span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i class="activo"></i><i class="activo"></i></span>
+      </div>
+      <nav aria-label="Secciones de superadministrador">
+        <a href="#perfiles" class="actual">Perfiles</a>
+        <a href="#permisos">Permisos</a>
+        <a href="#niveles">Niveles de acceso</a>
+        <a href="#configuracion">Configuración</a>
+      </nav>
+      <div class="lateral__pie">
+        <a href="index.html">Vista principal</a>
+        <a href="login.html">Cerrar sesión</a>
+      </div>
+    </aside>
+
+    <main class="principal" id="contenido">
+      <header class="principal__cabecera">
+        <div>
+          <h1>Administración del sistema</h1>
+          <p>Quién puede hacer qué y cómo se comporta la plataforma.</p>
+        </div>
+        
+      </header>
+      <div class="bloques">
+      <!-- RF-041: gestión de perfiles -->
+        <section class="panel" id="perfiles" aria-labelledby="t-perfiles">
+        <header class="panel__cabecera">
+          <h2 id="t-perfiles">Perfiles</h2>
+          <p>Cuatro perfiles de acceso.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="tabla-contenedor">
+            <table class="tabla">
+              <thead><tr><th>Código</th><th>Perfil</th><th>Nivel</th><th>Descripción</th><th class="derecha">Usuarios</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><span class="codigo">CLIENTE</span></td><td>Cliente</td><td><span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i></i><i></i><i></i></span></td><td>Alquila bicicletas y consulta su historial y pagos</td><td class="derecha numero">1</td><td class="acciones-celda"><button class="boton boton--secundario boton--s" type="button">Editar</button></td></tr>
+                <tr><td><span class="codigo">OPERADOR</span></td><td>Operador</td><td><span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i></i><i></i></span></td><td>Gestiona bicicletas, baterías y mantenimiento</td><td class="derecha numero">1</td><td class="acciones-celda"><button class="boton boton--secundario boton--s" type="button">Editar</button></td></tr>
+                <tr><td><span class="codigo">ADMINISTRADOR</span></td><td>Administrador</td><td><span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i class="activo"></i><i></i></span></td><td>Gestiona usuarios, estaciones y reportes</td><td class="derecha numero">1</td><td class="acciones-celda"><button class="boton boton--secundario boton--s" type="button">Editar</button></td></tr>
+                <tr><td><span class="codigo">SUPERADMINISTRADOR</span></td><td>Superadministrador</td><td><span class="perfil__nivel" aria-hidden="true"><i class="activo"></i><i class="activo"></i><i class="activo"></i><i class="activo"></i></span></td><td>Gestiona perfiles, permisos y configuración general</td><td class="derecha numero">1</td><td class="acciones-celda"><button class="boton boton--secundario boton--s" type="button">Editar</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="alta">
+            <summary>Crear un perfil</summary>
+            <form class="formulario formulario--rejilla" action="#" method="post">
+              <div class="campo"><label for="pf-cod">Código</label><input id="pf-cod" type="text" required placeholder="SUPERVISOR"></div>
+              <div class="campo"><label for="pf-nom">Nombre del perfil</label><input id="pf-nom" type="text" required></div>
+              <div class="campo"><label for="pf-niv">Nivel de acceso</label><input id="pf-niv" type="number" min="1" max="4" required></div>
+              <div class="campo campo--completo"><label for="pf-desc">Descripción</label><input id="pf-desc" type="text"></div>
+              <div class="acciones"><button class="boton" type="submit">Crear perfil</button></div>
+            </form>
+          </details>
+        </div>
+      </section>
+
+      <!-- RF-042: gestión de permisos -->
+        <section class="panel" id="permisos" aria-labelledby="t-permisos">
+        <header class="panel__cabecera">
+          <h2 id="t-permisos">Permisos por perfil</h2>
+          <p>Marca lo que puede hacer cada perfil.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <form action="#" method="post">
+            <div class="tabla-contenedor">
+              <table class="tabla permisos">
+                <thead><tr><th scope="col">Permiso</th><th scope="col">Cliente</th><th scope="col">Operador</th><th scope="col">Administrador</th><th scope="col">Superadministrador</th></tr></thead>
+                <tbody>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Alquileres</th></tr>
+                <tr><td>alquileres.crear<small>Iniciar y finalizar alquileres propios</small></td><td><input type="checkbox" name="alquileres.crear" value="Cliente" checked aria-label="Cliente puede alquileres.crear"></td><td><input type="checkbox" name="alquileres.crear" value="Operador" aria-label="Operador puede alquileres.crear"></td><td><input type="checkbox" name="alquileres.crear" value="Administrador" aria-label="Administrador puede alquileres.crear"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene alquileres.crear"></td></tr>
+                <tr><td>alquileres.historial<small>Consultar el historial de alquileres propios</small></td><td><input type="checkbox" name="alquileres.historial" value="Cliente" checked aria-label="Cliente puede alquileres.historial"></td><td><input type="checkbox" name="alquileres.historial" value="Operador" aria-label="Operador puede alquileres.historial"></td><td><input type="checkbox" name="alquileres.historial" value="Administrador" aria-label="Administrador puede alquileres.historial"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene alquileres.historial"></td></tr>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Pagos</th></tr>
+                <tr><td>pagos.gestionar<small>Registrar medios de pago y consultar pagos propios</small></td><td><input type="checkbox" name="pagos.gestionar" value="Cliente" checked aria-label="Cliente puede pagos.gestionar"></td><td><input type="checkbox" name="pagos.gestionar" value="Operador" aria-label="Operador puede pagos.gestionar"></td><td><input type="checkbox" name="pagos.gestionar" value="Administrador" aria-label="Administrador puede pagos.gestionar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene pagos.gestionar"></td></tr>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Usuarios</th></tr>
+                <tr><td>usuarios.gestionar<small>Registrar, consultar, modificar y desactivar usuarios</small></td><td><input type="checkbox" name="usuarios.gestionar" value="Cliente" aria-label="Cliente puede usuarios.gestionar"></td><td><input type="checkbox" name="usuarios.gestionar" value="Operador" aria-label="Operador puede usuarios.gestionar"></td><td><input type="checkbox" name="usuarios.gestionar" value="Administrador" checked aria-label="Administrador puede usuarios.gestionar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene usuarios.gestionar"></td></tr>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Flota</th></tr>
+                <tr><td>bicicletas.consultar<small>Consultar bicicletas y su estado</small></td><td><input type="checkbox" name="bicicletas.consultar" value="Cliente" checked aria-label="Cliente puede bicicletas.consultar"></td><td><input type="checkbox" name="bicicletas.consultar" value="Operador" checked aria-label="Operador puede bicicletas.consultar"></td><td><input type="checkbox" name="bicicletas.consultar" value="Administrador" checked aria-label="Administrador puede bicicletas.consultar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene bicicletas.consultar"></td></tr>
+                <tr><td>bicicletas.gestionar<small>Registrar bicicletas y actualizar su estado</small></td><td><input type="checkbox" name="bicicletas.gestionar" value="Cliente" aria-label="Cliente puede bicicletas.gestionar"></td><td><input type="checkbox" name="bicicletas.gestionar" value="Operador" checked aria-label="Operador puede bicicletas.gestionar"></td><td><input type="checkbox" name="bicicletas.gestionar" value="Administrador" aria-label="Administrador puede bicicletas.gestionar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene bicicletas.gestionar"></td></tr>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Estaciones</th></tr>
+                <tr><td>estaciones.gestionar<small>Registrar y consultar estaciones</small></td><td><input type="checkbox" name="estaciones.gestionar" value="Cliente" aria-label="Cliente puede estaciones.gestionar"></td><td><input type="checkbox" name="estaciones.gestionar" value="Operador" aria-label="Operador puede estaciones.gestionar"></td><td><input type="checkbox" name="estaciones.gestionar" value="Administrador" checked aria-label="Administrador puede estaciones.gestionar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene estaciones.gestionar"></td></tr>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Energía</th></tr>
+                <tr><td>energia.consultar<small>Consultar baterías, cargas, consumo y alertas</small></td><td><input type="checkbox" name="energia.consultar" value="Cliente" aria-label="Cliente puede energia.consultar"></td><td><input type="checkbox" name="energia.consultar" value="Operador" checked aria-label="Operador puede energia.consultar"></td><td><input type="checkbox" name="energia.consultar" value="Administrador" checked aria-label="Administrador puede energia.consultar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene energia.consultar"></td></tr>
+                <tr><td>energia.gestionar<small>Registrar baterías y cargas</small></td><td><input type="checkbox" name="energia.gestionar" value="Cliente" aria-label="Cliente puede energia.gestionar"></td><td><input type="checkbox" name="energia.gestionar" value="Operador" checked aria-label="Operador puede energia.gestionar"></td><td><input type="checkbox" name="energia.gestionar" value="Administrador" aria-label="Administrador puede energia.gestionar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene energia.gestionar"></td></tr>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Mantenimiento</th></tr>
+                <tr><td>mantenimiento.gestionar<small>Registrar novedades y gestionar mantenimientos</small></td><td><input type="checkbox" name="mantenimiento.gestionar" value="Cliente" aria-label="Cliente puede mantenimiento.gestionar"></td><td><input type="checkbox" name="mantenimiento.gestionar" value="Operador" checked aria-label="Operador puede mantenimiento.gestionar"></td><td><input type="checkbox" name="mantenimiento.gestionar" value="Administrador" aria-label="Administrador puede mantenimiento.gestionar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene mantenimiento.gestionar"></td></tr>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Reportes</th></tr>
+                <tr><td>reportes.consultar<small>Consultar información histórica y generar reportes</small></td><td><input type="checkbox" name="reportes.consultar" value="Cliente" aria-label="Cliente puede reportes.consultar"></td><td><input type="checkbox" name="reportes.consultar" value="Operador" aria-label="Operador puede reportes.consultar"></td><td><input type="checkbox" name="reportes.consultar" value="Administrador" checked aria-label="Administrador puede reportes.consultar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene reportes.consultar"></td></tr>
+                <tr class="grupo"><th colspan="5" scope="colgroup">Sistema</th></tr>
+                <tr><td>sistema.administrar<small>Gestionar perfiles, permisos, niveles de acceso y configuración</small></td><td><input type="checkbox" name="sistema.administrar" value="Cliente" aria-label="Cliente puede sistema.administrar"></td><td><input type="checkbox" name="sistema.administrar" value="Operador" aria-label="Operador puede sistema.administrar"></td><td><input type="checkbox" name="sistema.administrar" value="Administrador" aria-label="Administrador puede sistema.administrar"></td><td><input type="checkbox" checked disabled aria-label="Superadministrador tiene sistema.administrar"></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="acciones" style="margin-top: 1.25rem;"><button class="boton" type="submit">Guardar permisos</button>
+              <span class="texto-suave">El superadministrador siempre tiene todos los permisos.</span></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- RF-043: gestión de niveles de acceso -->
+        <section class="panel" id="niveles" aria-labelledby="t-niveles">
+        <header class="panel__cabecera">
+          <h2 id="t-niveles">Niveles de acceso</h2>
+          <p>Un nivel más alto significa más funciones.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <div class="escalera" aria-label="Niveles de acceso de menor a mayor">
+            <div class="escalon"><strong>1</strong>Cliente</div>
+            <div class="escalon"><strong>2</strong>Operador</div>
+            <div class="escalon"><strong>3</strong>Administrador</div>
+            <div class="escalon"><strong>4</strong>Superadministrador</div>
+          </div>
+          <form class="formulario formulario--rejilla" action="#" method="post" style="max-width: 36rem;">
+            <div class="campo"><label for="nv-perfil">Perfil</label><select id="nv-perfil"><option>Cliente</option><option>Operador</option><option>Administrador</option><option>Superadministrador</option></select></div>
+            <div class="campo"><label for="nv-nivel">Nuevo nivel (1 a 4)</label><input id="nv-nivel" type="number" min="1" max="4" required></div>
+            <div class="acciones"><button class="boton" type="submit">Cambiar nivel</button></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- RF-044: configuración general -->
+        <section class="panel" id="configuracion" aria-labelledby="t-configuracion">
+        <header class="panel__cabecera">
+          <h2 id="t-configuracion">Configuración general</h2>
+          <p>Parámetros de toda la plataforma.</p>
+        </header>
+        <div class="panel__cuerpo">
+          <form class="formulario formulario--rejilla" action="#" method="post" style="max-width: 44rem;">
+            <div class="campo"><label for="cf-min">Batería mínima para alquilar (%)</label><input id="cf-min" name="bateria_minima_alquiler" type="number" min="0" max="100" value="20" required><span class="ayuda">Por debajo de este nivel la bicicleta no se ofrece.</span></div>
+            <div class="campo"><label for="cf-crit">Nivel de carga crítico (%)</label><input id="cf-crit" name="bateria_nivel_critico" type="number" min="0" max="100" value="15" required><span class="ayuda">Al llegar a este nivel se genera una alerta.</span></div>
+            <div class="campo"><label for="cf-mon">Moneda</label><input id="cf-mon" name="moneda" type="text" value="COP" maxlength="3" required><span class="ayuda">Moneda de las tarifas y los pagos.</span></div>
+            <div class="campo"><label for="cf-base">Tarifa base ($)</label><input id="cf-base" name="tarifa_base" type="number" min="0" value="1000" required></div>
+            <div class="campo"><label for="cf-min-v">Valor por minuto ($)</label><input id="cf-min-v" name="valor_minuto" type="number" min="0" value="250" required></div>
+            <div class="acciones"><button class="boton" type="submit">Guardar configuración</button></div>
+          </form>
+        </div>
+      </section>
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>
